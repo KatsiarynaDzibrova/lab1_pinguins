@@ -9,21 +9,21 @@ namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
+class MainWindow : public QMainWindow, public AbstractView
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    MainWindow(QWidget *parent = nullptr);
+    void SetController(AbstractController* controller_);
+    ~MainWindow() override = default;
 
 private slots:
-    void on_pushButton_clicked();
-
+    void on_pushButton_clicked() override;
 private:
-    void newPinguin();
+    void drawPinguin() override;
     Ui::MainWindow *ui;
-    Controller controller;
+    AbstractController* controller;
     bool add_button = 0;
 };
 

@@ -3,10 +3,9 @@
 
 class  AbstractView  {
 public:
-    AbstractView();
-    virtual void DrawPinguin();
-    virtual void on_pushButton_clicked();
-    virtual ~AbstractView();
+    virtual void drawPinguin() = 0;
+    virtual void on_pushButton_clicked() = 0;
+    virtual ~AbstractView() = default;
 };
 
 #endif // ABSTRACTVIEW_H

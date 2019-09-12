@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include <QApplication>
 #include "controller.h"
-#include "view.h"
 
 int main(int argc, char *argv[])
 {
@@ -9,12 +8,8 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
-    Controller stack_controller;
+    Controller controller(&w);
 
-    View view;
-    Controller controller;
-
-    controller.SetView(&view);
-
+    w.SetController(&controller);
     return a.exec();
 }

@@ -12,18 +12,18 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 }
 
-MainWindow::~MainWindow()
-{
-    delete ui;
+void MainWindow::SetController(AbstractController* controller_){
+    controller = controller_;
 }
+
 
 void MainWindow::on_pushButton_clicked()
 {
-    controller.AddCustomer();
+    controller->AddCustomer();
     add_button = true;
-    newPinguin();
+    drawPinguin();
 }
-void MainWindow::newPinguin(){
+void MainWindow::drawPinguin(){
     QLabel *label = new QLabel(this);
     label->setFrameStyle(QFrame::Panel | QFrame::Sunken);
     label->setText("first line\nsecond line");

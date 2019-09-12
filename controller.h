@@ -2,17 +2,18 @@
 #define CONTROLLER_H
 
 #include "model.h"
-#include "view.h"
+#include "abstractview.h"
+#include "abstractcontroller.h"
 
-class Controller
+class Controller: public AbstractController
 {
 public:
-    Controller();
-    void AddCustomer();
-    void SetView(const View* view_);
+    Controller(AbstractView* view);
+    ~Controller() override = default;
+    void AddCustomer() override;
 private:
     Model model;
-    const View* view;
+    const AbstractView* view;
 };
 
 #endif // CONTROLLER_H

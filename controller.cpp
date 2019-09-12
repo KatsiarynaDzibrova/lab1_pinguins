@@ -1,13 +1,8 @@
 #include "controller.h"
 #include "model.h"
-#include "view.h"
 
-Controller::Controller()
-{}
+Controller::Controller(AbstractView* view):view(view){}
 
 void Controller::AddCustomer() {
 }
 
-void Controller::SetView(const View *view_){
-    view = view_;
-}

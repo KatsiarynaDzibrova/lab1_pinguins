@@ -29,14 +29,14 @@ SOURCES += \
         mainwindow.cpp \
     controller.cpp \
     model.cpp \
-    view.cpp
+    abstractcontroller.cpp
 
 HEADERS += \
         mainwindow.h \
     controller.h \
     model.h \
-    view.h \
-    abstractview.h
+    abstractview.h \
+    abstractcontroller.h
 
 FORMS += \
         mainwindow.ui

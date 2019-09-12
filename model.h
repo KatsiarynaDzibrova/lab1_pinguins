@@ -1,12 +1,12 @@
 #ifndef MODEL_H
 #define MODEL_H
-#include <stack>
+#include "stack.h"
 
 class Model
 {
 public:
     Model();
-    std::stack<int> customers;
+    Stack customers;
 };
 
 #endif // MODEL_H

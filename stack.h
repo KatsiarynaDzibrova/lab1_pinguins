@@ -76,10 +76,4 @@ private:
   int tail_;
 };
 
-
-int main() {
-    return 0;
-}
-
-
 #endif // STACK_H

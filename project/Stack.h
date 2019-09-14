@@ -3,11 +3,13 @@
 #include "math.h"
 #include <string>
 
+using namespace std;
+
 class Stack {
 public:
 	explicit Stack(int max_size = 100) :
 		max_size_(max_size), tail_(0) {
-		int* copy_ = new int[max_size_];
+		string* copy_ = new string[max_size_];
 		data_ = copy_;
 	}
 
@@ -24,7 +26,7 @@ public:
 	}
 
 	void Resize(int new_size_) {
-		int* big_copy_ = new int[new_size_];
+		string* big_copy_ = new string[new_size_];
 		for (int i = 0; i < fmin(tail_, new_size_); i++) {
 			big_copy_[i] = data_[i];
 		}
@@ -33,7 +35,7 @@ public:
 		max_size_ = new_size_;
 	}
 
-	bool PushBack(int value) {
+	bool PushBack(string value) {
 		if (IsFull()) {
 			Resize(2 * max_size_);
 		}
@@ -53,7 +55,7 @@ public:
 		return true;
 	}
 
-	int Top() {
+	string Top() {
 		if (tail_ != 0) {
 			return data_[tail_ - 1];
 		}
@@ -76,7 +78,7 @@ public:
 	}
 
 private:
-	int* data_;
+	string* data_;
 	int max_size_;
 	int tail_;
 };

@@ -30,12 +30,11 @@ INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 	
     case WM_COMMAND:
 		if (LOWORD(wParam) == IDC_BUTTON1) {
-			BOOL bSuccess;
-			BOOL bSigned = FALSE;
-			int value  = GetDlgItemInt(hDlg, IDC_EDIT1, &bSuccess, bSigned);
-			st.PushBack(value);
-			char buf[100];
-			sprintf_s(buf, 100, "%10d", st.Top());
+			char tipa_string[1000];
+			GetDlgItemTextA(hDlg, IDC_EDIT1, (LPSTR)tipa_string, 1000);
+			st.PushBack(std::string(tipa_string));
+			char buf[1000];
+			strcpy_s(buf, st.Top().c_str());
 			SendDlgItemMessage(hDlg, IDC_LIST1, LB_ADDSTRING, 0, (LPARAM)buf);
 		}
 

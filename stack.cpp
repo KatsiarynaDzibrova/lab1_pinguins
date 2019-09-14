@@ -2,13 +2,19 @@
 
 Stack::Stack(int max_size) :
   max_size_(max_size), tail_(0) {
-  int* copy_ = new int[max_size_];
+  string* copy_ = new string[max_size_];
   data_ = copy_;
 }
 
 int Stack::Size() const {
   return tail_;
 }
+
+string Stack::Top() {
+    if (tail_ != 0) {
+      return data_[tail_ - 1];
+    }
+  }
 
 bool Stack::IsEmpty() const {
   return tail_ == 0;
@@ -19,7 +25,7 @@ bool Stack::IsFull() const {
 }
 
 void Stack::Resize(int new_size_) {
-  int* big_copy_ = new int[new_size_];
+  string* big_copy_ = new string[new_size_];
   for (int i = 0; i < fmin(tail_, new_size_); i++) {
     big_copy_[i] = data_[i];
   }

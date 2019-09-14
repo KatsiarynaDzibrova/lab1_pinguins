@@ -1,6 +1,7 @@
 #ifndef STACK_H
 #define STACK_H
 #include "math.h"
+#include <string>
 
 using namespace std;
 
@@ -9,6 +10,8 @@ public:
   explicit Stack(int max_size = 100);
 
   int Size() const;
+  
+  string Top();
 
   bool IsEmpty() const;
 
@@ -16,7 +19,7 @@ public:
 
   void Resize(int new_size_);
 
-  bool PushBack(int value);
+  bool PushBack(string value);
 
   bool PopBack();
 
@@ -25,7 +28,7 @@ public:
   ~ Stack();
 
 private:
-  int* data_;
+  string* data_;
   int max_size_;
   int tail_;
 };

@@ -20,3 +20,6 @@ int controller::Size() {
 std::string controller::Top() {
 	return stack1.Top();
 }
+bool controller::Compare(Stack& stack2) {
+	return stack1 == stack2;
+}

@@ -10,6 +10,7 @@ public:
 	void PopBack();
 	int Size();
 	std::string Top();
+	bool Compare(Stack& stack2);
 private:
 	Stack stack1;
 };

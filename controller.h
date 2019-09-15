@@ -1,19 +1,16 @@
-#ifndef CONTROLLER_H
-#define CONTROLLER_H
-
-#include "model.h"
-#include "abstractview.h"
-#include "abstractcontroller.h"
-
-class Controller: public AbstractController
+#pragma once
+#include <string>
+#include "Stack.h"
+class controller
 {
 public:
-    Controller(AbstractView* view);
-    ~Controller() override = default;
-    void AddCustomer() override;
+	controller();
+	~controller() = default;
+	void AddPinguin(std::string name);
+	void PopBack();
+	int Size();
+	std::string Top();
 private:
-    Model model;
-    const AbstractView* view;
+	Stack stack1;
 };
 
-#endif // CONTROLLER_H

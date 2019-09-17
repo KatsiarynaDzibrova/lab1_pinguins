@@ -1,16 +1,17 @@
 #pragma once
 #include <string>
 #include "Stack.h"
-class controller
+#include "abstractcontroller.h"
+
+class controller : public AbstractController
 {
 public:
-	controller();
 	~controller() = default;
-	void AddPinguin(std::string name);
-	void PopBack();
-	int Size();
-	std::string Top();
-	bool Compare(Stack& stack2);
+	void AddPinguin(std::string name) override;
+	void PopBack() override;
+	int Size() override;
+	std::string Top() override;
+	bool Compare(Stack& stack2) override;
 private:
 	Stack stack1;
 };

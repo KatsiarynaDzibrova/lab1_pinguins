@@ -6,6 +6,10 @@
 
 controller Controller;
 
+CAboutDialog::CAboutDialog() {
+	DialogBox(NULL, MAKEINTRESOURCE(IDD_DIALOG1), NULL, &CAboutDialog::About);
+}
+
 INT_PTR CALLBACK    CAboutDialog::About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	static Stack stack2;

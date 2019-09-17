@@ -1,8 +1,7 @@
 #include "controller.h"
 #include <iostream>
 
-controller::controller() : stack1(){
-}
+
 void controller::AddPinguin(std::string s) {
 	stack1.PushBack(s);
 	std::cout << std::endl << "pushed" << std::endl;

@@ -14,14 +14,15 @@
 // Отправить объявления функций, включенных в этот модуль кода:
 //INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
-CAboutDialog Dialog;
+
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	_In_opt_ HINSTANCE hPrevInstance,
 	_In_ LPWSTR    lpCmdLine,
 	_In_ int       nCmdShow)
 {
-	DialogBox(hInstance, MAKEINTRESOURCE(IDD_DIALOG1), NULL, &CAboutDialog::About);
+	CAboutDialog Dialog;
+	//DialogBox(hInstance, MAKEINTRESOURCE(IDD_DIALOG1), NULL, &CAboutDialog::About);
 }
 /*
 // Обработчик сообщений для окна "О программе".

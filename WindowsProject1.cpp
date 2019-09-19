@@ -7,69 +7,79 @@
 #include "WindowsProject1.h"
 #include "Stack.h"
 #include "controller.h"
-#include "CAboutDialog.h"
+#include "MainWindowView.h"
 
 
 
 // Отправить объявления функций, включенных в этот модуль кода:
-//INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
+INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 
+MainWindowView View;
+controller Controller;
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	_In_opt_ HINSTANCE hPrevInstance,
 	_In_ LPWSTR    lpCmdLine,
 	_In_ int       nCmdShow)
 {
-	CAboutDialog Dialog;
-	//DialogBox(hInstance, MAKEINTRESOURCE(IDD_DIALOG1), NULL, &CAboutDialog::About);
-}
-/*
-// Обработчик сообщений для окна "О программе".
-INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
-{
-	Stack st;
-    UNREFERENCED_PARAMETER(lParam);
-    switch (message)
-    {
-    case WM_INITDIALOG:
-        return (INT_PTR)TRUE;
 	
-    case WM_COMMAND:
+	DialogBox(hInstance, MAKEINTRESOURCE(IDD_DIALOG1), NULL, &About);
+}
+
+
+INT_PTR CALLBACK    About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	static Stack stack2;
+	UNREFERENCED_PARAMETER(lParam);
+	switch (message)
+	{
+	case WM_INITDIALOG:
+		stack2.PushBack("Jake");
+		stack2.PushBack("Finn");
+		return (INT_PTR)TRUE;
+
+	case WM_COMMAND:
 		if (LOWORD(wParam) == IDC_BUTTON1) {
-			char tipa_string[1000];
-			GetDlgItemTextA(hDlg, IDC_EDIT1, (LPSTR)tipa_string, 1000);
-			Controller.AddPinguin(std::string(tipa_string));
-			//st.PushBack(std::string(tipa_string));
-			ShowPinguin(Controller.Top(), hDlg);
+			char tipa_string[100];
+			GetDlgItemTextA(hDlg, IDC_EDIT1, (LPSTR)tipa_string, 100);
+			View.Controller->AddPinguin(std::string(tipa_string));
+
+			View.ShowPinguin(View.Controller->Top(), hDlg);
 		}
 
 		if (LOWORD(wParam) == IDC_BUTTON2) {
-			Controller.PopBack();
-			SendDlgItemMessage(hDlg, IDC_LIST1, LB_DELETESTRING, Controller.Size(), 0);
+			View.Controller->PopBack();
+			View.HidePinguin(hDlg);
 		}
 
 		if (LOWORD(wParam) == IDC_BUTTON3) {
 			char buf[100];
-			SendDlgItemMessage(hDlg, IDC_LIST2, LB_RESETCONTENT, 0, (LPARAM)buf);	
-			int size = Controller.Size();
-			sprintf_s(buf, 100, "%10d", size);
+			SendDlgItemMessage(hDlg, IDC_LIST2, LB_RESETCONTENT, 0, 0);
+			sprintf_s(buf, 100, "%10d", View.Controller->Size());
 			SendDlgItemMessage(hDlg, IDC_LIST2, LB_ADDSTRING, 0, (LPARAM)buf);
 		}
 
-		 if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
-        {
-            EndDialog(hDlg, LOWORD(wParam));
-            return (INT_PTR)TRUE;
-        }
-        break;
-    }
-    return (INT_PTR)FALSE;
-}
+		if (LOWORD(wParam) == IDC_BUTTON4) {
+			if (View.Controller->Compare(stack2)) {
+				char tr[100] = "True";
+				SendDlgItemMessage(hDlg, IDC_LIST3, LB_RESETCONTENT, 0, 0);
+				SendDlgItemMessage(hDlg, IDC_LIST3, LB_ADDSTRING, 0, (LPARAM)tr);
+			}
+			else {
+				char fals[100] = "False";
+				SendDlgItemMessage(hDlg, IDC_LIST3, LB_RESETCONTENT, 0, 0);
+				SendDlgItemMessage(hDlg, IDC_LIST3, LB_ADDSTRING, 0, (LPARAM)fals);
+			}
+		}
 
-void ShowPinguin(std::string s, HWND hDlg ) {
-	char buf[1000];
-	strcpy_s(buf, s.c_str());
-	SendDlgItemMessage(hDlg, IDC_LIST1, LB_ADDSTRING, 0, (LPARAM)buf);
+
+		if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
+		{
+			EndDialog(hDlg, LOWORD(wParam));
+			return (INT_PTR)TRUE;
+		}
+		break;
+	}
+	return (INT_PTR)FALSE;
 }
-*/

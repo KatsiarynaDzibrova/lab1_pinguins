@@ -1,1 +1,8 @@
-﻿  WindowsProject1.vcxproj -> C:\Users\Yanina Sandryhaila\lab1_pinguins\Debug\WindowsProject1.exe
+﻿  MainWindowView.cpp
+  WindowsProject1.cpp
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(54,21): warning C4244:  аргумент: преобразование "double" в "int", возможна потеря данных
+  controller.cpp
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(54,21): warning C4244:  аргумент: преобразование "double" в "int", возможна потеря данных
+  Создание кода...
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(54,21): warning C4244:  аргумент: преобразование "double" в "int", возможна потеря данных
+  WindowsProject1.vcxproj -> C:\Users\Yanina Sandryhaila\lab1_pinguins\Debug\WindowsProject1.exe

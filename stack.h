@@ -60,6 +60,7 @@ public:
 		if (tail_ != 0) {
 			return data_[tail_ - 1];
 		}
+		return "";
 	}
 
 	bool operator==(const Stack& other) const {

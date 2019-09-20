@@ -63,5 +63,8 @@
     <Image Include="WindowsProject1.ico">
       <Filter>Файлы ресурсов</Filter>
     </Image>
+    <Image Include="pinguin.bmp">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
   </ItemGroup>
 </Project>

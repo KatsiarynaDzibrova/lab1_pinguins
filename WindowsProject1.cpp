@@ -13,6 +13,9 @@
 
 // Отправить объявления функций, включенных в этот модуль кода:
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
+HINSTANCE hInst;
+HBITMAP hBitmap;
+HWND hPic;
 
 
 MainWindowView View;
@@ -23,8 +26,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	_In_ LPWSTR    lpCmdLine,
 	_In_ int       nCmdShow)
 {
-	
+	hInst = hInstance;
 	DialogBox(hInstance, MAKEINTRESOURCE(IDD_DIALOG1), NULL, &About);
+
 }
 
 
@@ -35,6 +39,8 @@ INT_PTR CALLBACK    About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 	switch (message)
 	{
 	case WM_INITDIALOG:
+		hBitmap = LoadBitmap(hInst, MAKEINTRESOURCE(IDB_BITMAP1));
+		hPic = GetDlgItem(hDlg, IDC_PICTURE);
 		return (INT_PTR)TRUE;
 
 	case WM_COMMAND:
@@ -63,6 +69,18 @@ INT_PTR CALLBACK    About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 			return (INT_PTR)TRUE;
 		}
 		break;
+	case WM_PAINT:
+		BITMAP bm;
+		PAINTSTRUCT ps;
+
+		HDC hdc = BeginPaint(hPic, &ps);
+		HDC hdcMem = CreateCompatibleDC(hdc);
+		HGDIOBJ hbmOld = SelectObject(hdcMem, hBitmap);
+		GetObject(hBitmap, sizeof(bm), &bm);
+		BitBlt(hdc, 0, 0, bm.bmWidth, bm.bmHeight, hdcMem, 0, 0, SRCCOPY);
+		SelectObject(hdcMem, hbmOld);
+		DeleteDC(hdcMem);
+		EndPaint(hPic, &ps);
 	}
 	return (INT_PTR)FALSE;
 }

@@ -3,24 +3,23 @@
 #include "abstractview.h"
 #include "abstractcontroller.h"
 #include "framework.h"
-class MainWindowView
+
+class MainWindowView : public AbstractView
 {
 public:
 	~MainWindowView();
 	MainWindowView();
-	void NewPinguinPressed();
-	void DeletePinguinPressed();
-	void IfEqualPressed();
-	void setDialog(HWND dlg);
-	void ChangeSize();
-	void SetIfEqual(std::string tr);
+	void NewPinguinPressed() override;
+	void DeletePinguinPressed() override;
+	void IfEqualPressed() override;
+	void setDialog(HWND dlg) override;
+	void ChangeSize() override;
+	void SetIfEqual(std::string tr) override;
+	void ShowPinguin(std::string s) override;
+	void HidePinguin() override;
 
-
-	void ShowPinguin(std::string s);
-	void HidePinguin();
-
+private:
 	AbstractController* Controller;
 	HWND hDlg;
-
-
+	
 };

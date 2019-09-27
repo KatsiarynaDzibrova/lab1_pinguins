@@ -14,9 +14,18 @@ public:
 	int Size() override;
 	std::string Top() override;
 	void IfEqual() override;
+	void GenerateCrowd() override;
+	void CrowdVisit() override;
+	void StackVisit() override;
+	Crowd crowd;
+	Cahser cahser;
+	void GoUp() override;
+	void GoDown() override;
+	
 private:
 	MainWindowView* view;
-	Stack stack1;
+	Stack::Iterator iterator1;
 	Stack stack2;
+	Stack stack1;
 };
 

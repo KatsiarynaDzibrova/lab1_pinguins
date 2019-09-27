@@ -17,6 +17,12 @@ public:
 	void SetIfEqual(std::string tr) override;
 	void ShowPinguin(std::string s) override;
 	void HidePinguin() override;
+	void ShowRandomCrowd() override;
+	void UpButton() override;
+	void DownButton() override;
+	void ShowPicked(std::string tr) override;
+	void TimeToVisitCrowd() override;
+	void TimeToVisitStack() override;
 
 private:
 	AbstractController* Controller;

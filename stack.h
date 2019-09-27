@@ -3,11 +3,16 @@
 #include "math.h"
 #include <iostream>
 #include <string>
+#include <vector>
+#include <ctime>
+#include <algorithm>
 
 using namespace std;
 
 class Stack {
 public:
+	class Iterator;
+
 	explicit Stack(int max_size = 100) :
 		max_size_(max_size), tail_(0) {
 		string* copy_ = new string[max_size_];
@@ -78,14 +83,75 @@ public:
 	~Stack() {
 		delete[] data_;
 	}
+	Stack::Iterator begin();
 
 private:
 	string* data_;
 	int max_size_;
 	int tail_;
 };
+ 
+class Stack::Iterator : 
+	public std::iterator<std::random_access_iterator_tag, std::string> {
+public:
+	Iterator(Stack* s, int i);
+	const std::string& operator*() const;
+	Iterator& operator++();
+	Iterator& operator--();
+private:
+	const Stack* stack_;
+	int index;
+};
 
+class Crowd {
+private:
+	vector <int> crowd;
+	int size_;
 
+public:
+	explicit Crowd() :
+		crowd(vector<int>(rand() % 10 + 1)), size_(crowd.size()) {
+	}
 
+	void DeleteRandomHuman() {
+		crowd.erase(begin(crowd) + rand() % size_);
+		size_--;
+	}
+
+	int GetHumanWithIndex(int index) {
+		return crowd[index];
+	}
+	int GetSize() {
+		return size_;
+	}
+
+	void GenerateRandomCrowd() {
+		srand(time(NULL));
+		vector <int> crowd1(rand() % 10 + 1);
+		for (int i = 0; i < crowd1.size(); i++) {
+			crowd1[i] = rand() % 100 + 1;
+		}
+		crowd = crowd1;
+		size_ = crowd1.size();
+	}
+};
+
+class Visitor {
+public:
+	virtual ~Visitor() = default;
+	virtual void VisitStack(Stack& stack) = 0;
+	virtual void VisitCrowd(Crowd& crowd) = 0;
+
+};
+
+class Cahser : Visitor {
+public:
+	void VisitStack(Stack& stack) override {
+		stack.PopBack();
+	}
+	void VisitCrowd(Crowd& crowd) override {
+		crowd.DeleteRandomHuman();
+	}
+};
 
 

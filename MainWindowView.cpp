@@ -6,6 +6,7 @@
 #include "controller.h"
 
 
+
 MainWindowView::MainWindowView() {
 	Controller = new controller(this);
 }
@@ -45,12 +46,49 @@ void MainWindowView::ChangeSize() {
 }
 
 void MainWindowView::SetIfEqual(std::string tr) {
-
-
 	SendDlgItemMessage(hDlg, IDC_LIST3, LB_RESETCONTENT, 0, 0);
 	SendDlgItemMessage(hDlg, IDC_LIST3, LB_ADDSTRING, 0, (LPARAM)tr.c_str());
 }
 
+void MainWindowView::ShowRandomCrowd() {
+	Controller->crowd.GenerateRandomCrowd();
+	SendDlgItemMessage(hDlg, IDC_LIST4, LB_RESETCONTENT, 0, 0);
+	for (int i = 0; i < Controller->crowd.GetSize(); i++) {
+		char buf[100];
+		sprintf_s(buf, 100, "%10d", Controller->crowd.GetHumanWithIndex(i));
+		SendDlgItemMessage(hDlg, IDC_LIST4, LB_ADDSTRING, 0, (LPARAM)buf);
+	}
+}
+
+void MainWindowView::TimeToVisitCrowd() {
+	Controller->cahser.VisitCrowd(Controller->crowd);
+	SendDlgItemMessage(hDlg, IDC_LIST4, LB_RESETCONTENT, 0, 0);
+	for (int i = 0; i < Controller->crowd.GetSize(); i++) {
+		char buf[100];
+		sprintf_s(buf, 100, "%10d", Controller->crowd.GetHumanWithIndex(i));
+		SendDlgItemMessage(hDlg, IDC_LIST4, LB_ADDSTRING, 0, (LPARAM)buf);
+	}
+}
+
+void MainWindowView::TimeToVisitStack() {
+	Controller->StackVisit();
+	SendDlgItemMessage(hDlg, IDC_LIST1, LB_DELETESTRING, Controller->Size(), 0);
+}
+
+
 void MainWindowView::setDialog(HWND dlg) {
 	hDlg = dlg;
+}
+
+void MainWindowView::UpButton() {
+	Controller->GoUp();
+}
+
+void MainWindowView::DownButton() {
+	Controller->GoDown();
+}
+
+void MainWindowView::ShowPicked(std::string tr)
+{
+	SetDlgItemText(hDlg, IDC_EDIT2, (LPCSTR)tr.c_str());
 }

@@ -25,8 +25,8 @@
 #define IDC_PICTURE                     1008
 #define IDC_BUTTON5                     1009
 #define IDC_BUTTON6                     1010
-#define IDC_EDIT4                       1015
 #define IDC_EDIT2                       1015
+#define IDC_BUTTON7                     1016
 #define IDC_STATIC                      -1
 
 // Next default values for new objects
@@ -36,7 +36,7 @@
 #define _APS_NO_MFC                     1
 #define _APS_NEXT_RESOURCE_VALUE        131
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1016
+#define _APS_NEXT_CONTROL_VALUE         1017
 #define _APS_NEXT_SYMED_VALUE           110
 #endif
 #endif

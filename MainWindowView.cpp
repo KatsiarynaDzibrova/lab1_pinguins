@@ -65,5 +65,5 @@ void MainWindowView::DownButton() {
 
 void MainWindowView::ShowPicked(std::string tr)
 {
-	SetDlgItemText(hDlg, IDC_EDIT2, tr.c_str());
+	SetDlgItemText(hDlg, IDC_EDIT2, (LPCSTR)tr.c_str());
 }

@@ -54,3 +54,16 @@ void MainWindowView::SetIfEqual(std::string tr) {
 void MainWindowView::setDialog(HWND dlg) {
 	hDlg = dlg;
 }
+
+void MainWindowView::UpButton() {
+	Controller->GoUp();
+}
+
+void MainWindowView::DownButton() {
+	Controller->GoDown();
+}
+
+void MainWindowView::ShowPicked(std::string tr)
+{
+	SetDlgItemText(hDlg, IDC_EDIT2, tr.c_str());
+}

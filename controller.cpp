@@ -1,7 +1,8 @@
 #include "controller.h"
 #include <iostream>
 
-controller::controller(MainWindowView* ptr): view(ptr){
+controller::controller(MainWindowView* ptr): 
+	view(ptr), iterator1(stack1.begin()) {
 	stack2.PushBack("Jake");
 	stack2.PushBack("Finn");
 }
@@ -32,4 +33,14 @@ void controller::IfEqual() {
 	else {
 		view->SetIfEqual("False");
 	}
+}
+
+void controller::GoUp() {
+	++iterator1;
+	view->ShowPicked(*iterator1);
+}
+
+void controller::GoDown() {
+	--iterator1;
+	view->ShowPicked(*iterator1);
 }

@@ -41,12 +41,12 @@ INT_PTR CALLBACK    About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 	case WM_INITDIALOG:
 		hBitmap = LoadBitmap(hInst, MAKEINTRESOURCE(IDB_BITMAP1));
 		hPic = GetDlgItem(hDlg, IDC_PICTURE);
+		View.UpButton();
 		return (INT_PTR)TRUE;
 
 	case WM_COMMAND:
 		if (LOWORD(wParam) == IDC_BUTTON1) {
 			View.NewPinguinPressed();
-
 		}
 
 		if (LOWORD(wParam) == IDC_BUTTON2) {
@@ -60,6 +60,14 @@ INT_PTR CALLBACK    About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 
 		if (LOWORD(wParam) == IDC_BUTTON4) {
 			View.IfEqualPressed();
+		}
+
+		if (LOWORD(wParam) == IDC_BUTTON5) {
+			View.DownButton();
+		}
+
+		if (LOWORD(wParam) == IDC_BUTTON6) {			
+			View.UpButton();
 		}
 
 

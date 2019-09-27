@@ -13,5 +13,8 @@ public:
 	virtual int Size() = 0;
 	virtual std::string Top() = 0;
 	virtual void IfEqual() = 0;
+
+	virtual void GoUp() = 0;
+	virtual void GoDown() = 0;
 };
 

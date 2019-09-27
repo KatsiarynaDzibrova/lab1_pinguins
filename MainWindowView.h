@@ -18,6 +18,10 @@ public:
 	void ShowPinguin(std::string s) override;
 	void HidePinguin() override;
 
+	void UpButton() override;
+	void DownButton() override;
+	void ShowPicked(std::string tr) override;
+
 private:
 	AbstractController* Controller;
 	HWND hDlg;

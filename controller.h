@@ -14,9 +14,13 @@ public:
 	int Size() override;
 	std::string Top() override;
 	void IfEqual() override;
+
+	void GoUp() override;
+	void GoDown() override;
 private:
 	MainWindowView* view;
 	Stack stack1;
+	Stack::Iterator iterator1;
 	Stack stack2;
 };
 

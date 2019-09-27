@@ -14,4 +14,8 @@ public:
 	virtual void setDialog(HWND dlg) = 0;
 	virtual void ShowPinguin(std::string s) = 0;
 	virtual void HidePinguin() = 0;
+
+	virtual void UpButton() = 0;
+	virtual void DownButton() = 0;
+	virtual void ShowPicked(std::string tr) = 0;
 };

@@ -8,6 +8,8 @@ using namespace std;
 
 class Stack {
 public:
+	class Iterator;
+
 	explicit Stack(int max_size = 100) :
 		max_size_(max_size), tail_(0) {
 		string* copy_ = new string[max_size_];
@@ -78,12 +80,26 @@ public:
 	~Stack() {
 		delete[] data_;
 	}
+	Stack::Iterator begin();
 
 private:
 	string* data_;
 	int max_size_;
 	int tail_;
 };
+ 
+class Stack::Iterator : 
+	public std::iterator<std::random_access_iterator_tag, std::string> {
+public:
+	Iterator(Stack* s, int i);
+	const std::string& operator*() const;
+	Iterator& operator++();
+	Iterator& operator--();
+private:
+	const Stack* stack_;
+	int index;
+};
+
 
 
 

@@ -40,11 +40,11 @@ void controller::GenerateCrowd() {
 }
 
 void controller::CrowdVisit() {
-	view->TimeToVisitCrowd();
+	crowd.Accept(chaser);
 }
 
 void controller::StackVisit() {
-	cahser.VisitStack(stack1);
+	stack1.Accept(chaser);
 }
 
 void controller::GoUp() {

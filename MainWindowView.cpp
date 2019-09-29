@@ -54,19 +54,18 @@ void MainWindowView::ShowRandomCrowd() {
 	Controller->crowd.GenerateRandomCrowd();
 	SendDlgItemMessage(hDlg, IDC_LIST4, LB_RESETCONTENT, 0, 0);
 	for (int i = 0; i < Controller->crowd.GetSize(); i++) {
-		char buf[100];
-		sprintf_s(buf, 100, "%10d", Controller->crowd.GetHumanWithIndex(i));
-		SendDlgItemMessage(hDlg, IDC_LIST4, LB_ADDSTRING, 0, (LPARAM)buf);
+		SendDlgItemMessage(hDlg, IDC_LIST4, LB_ADDSTRING, 0,
+			(LPARAM)(Controller->crowd.GetHumanWithIndex(i)).c_str());
 	}
 }
 
 void MainWindowView::TimeToVisitCrowd() {
-	Controller->cahser.VisitCrowd(Controller->crowd);
+	//Controller->CrowdVisit();
+	Controller->chaser.VisitCrowd(Controller->crowd);
 	SendDlgItemMessage(hDlg, IDC_LIST4, LB_RESETCONTENT, 0, 0);
 	for (int i = 0; i < Controller->crowd.GetSize(); i++) {
-		char buf[100];
-		sprintf_s(buf, 100, "%10d", Controller->crowd.GetHumanWithIndex(i));
-		SendDlgItemMessage(hDlg, IDC_LIST4, LB_ADDSTRING, 0, (LPARAM)buf);
+		SendDlgItemMessage(hDlg, IDC_LIST4, LB_ADDSTRING, 0,
+			(LPARAM)(Controller->crowd.GetHumanWithIndex(i)).c_str());
 	}
 }
 

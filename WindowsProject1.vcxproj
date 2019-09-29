@@ -154,6 +154,7 @@
   <ItemGroup>
     <ClInclude Include="abstractcontroller.h" />
     <ClInclude Include="abstractview.h" />
+    <ClInclude Include="Chaser.h" />
     <ClInclude Include="MainWindowView.h" />
     <ClInclude Include="controller.h" />
     <ClInclude Include="framework.h" />
@@ -161,6 +162,7 @@
     <ClInclude Include="resource1.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Visitor.h" />
     <ClInclude Include="WindowsProject1.h" />
   </ItemGroup>
   <ItemGroup>

@@ -6,10 +6,17 @@
 #include <vector>
 #include <ctime>
 #include <algorithm>
+#include "Visitor.h"
 
 using namespace std;
 
-class Stack {
+class PeopleGroup {
+public:
+	virtual ~PeopleGroup() = default;
+	virtual void Accept(Visitor& c) = 0;
+};
+
+class Stack : public PeopleGroup  {
 public:
 	class Iterator;
 
@@ -80,9 +87,15 @@ public:
 		return true;
 	}
 
+	void Accept(Visitor& c) override {
+		c.VisitStack(*this);
+	}
+
 	~Stack() {
 		delete[] data_;
 	}
+	
+	
 	Stack::Iterator begin();
 
 private:
@@ -91,6 +104,7 @@ private:
 	int tail_;
 };
  
+
 class Stack::Iterator : 
 	public std::iterator<std::random_access_iterator_tag, std::string> {
 public:
@@ -103,22 +117,29 @@ private:
 	int index;
 };
 
-class Crowd {
+class Crowd : public PeopleGroup
+{
 private:
-	vector <int> crowd;
+	vector <string> crowd;
 	int size_;
 
 public:
-	explicit Crowd() :
-		crowd(vector<int>(rand() % 10 + 1)), size_(crowd.size()) {
+	string items[20] = { "Lyosha", "Nikita", "Zhenya", "artemx",
+		"Sasha", "rrenkens", "Katya", "Petya", "Sanya", "Dimka", "Lyosha", "Pasha",  "Andryusha", "Narodok", 
+		 "Yanina", "Misha", "Alesya",
+	"Stas", "Fedya", "Shnek"};
+	
+	explicit Crowd() : 
+		crowd(vector<string>(rand() % 10 + 1)), 
+		size_(crowd.size()) {
 	}
 
 	void DeleteRandomHuman() {
-		crowd.erase(begin(crowd) + rand() % size_);
-		size_--;
-	}
+			crowd.erase(begin(crowd) + rand() % size_);
+			size_--;
+		}
 
-	int GetHumanWithIndex(int index) {
+	string GetHumanWithIndex(int index) {
 		return crowd[index];
 	}
 	int GetSize() {
@@ -127,31 +148,20 @@ public:
 
 	void GenerateRandomCrowd() {
 		srand(time(NULL));
-		vector <int> crowd1(rand() % 10 + 1);
+		vector <string> crowd1(rand() % 10 + 1);
 		for (int i = 0; i < crowd1.size(); i++) {
-			crowd1[i] = rand() % 100 + 1;
+			crowd1[i] = items[ rand() % (sizeof(items) / sizeof(items[0]))];
 		}
 		crowd = crowd1;
 		size_ = crowd1.size();
 	}
-};
 
-class Visitor {
-public:
-	virtual ~Visitor() = default;
-	virtual void VisitStack(Stack& stack) = 0;
-	virtual void VisitCrowd(Crowd& crowd) = 0;
-
-};
-
-class Cahser : Visitor {
-public:
-	void VisitStack(Stack& stack) override {
-		stack.PopBack();
-	}
-	void VisitCrowd(Crowd& crowd) override {
-		crowd.DeleteRandomHuman();
+	void Accept(Visitor& c) override {
+		c.VisitCrowd(*this);
 	}
 };
+
+
+
 
 

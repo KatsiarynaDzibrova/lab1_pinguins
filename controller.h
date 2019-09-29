@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include "Stack.h"
+#include "Chaser.h"
 #include "abstractcontroller.h"
 #include "MainWindowView.h"
 
@@ -18,7 +19,7 @@ public:
 	void CrowdVisit() override;
 	void StackVisit() override;
 	Crowd crowd;
-	Cahser cahser;
+	Chaser chaser;
 	void GoUp() override;
 	void GoDown() override;
 	

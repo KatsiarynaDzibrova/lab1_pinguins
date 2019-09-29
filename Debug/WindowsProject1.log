@@ -1,1 +1,18 @@
-﻿  WindowsProject1.vcxproj -> D:\Study\lab_1_pinguin\lab1_pinguins\Debug\WindowsProject1.exe
+﻿  MainWindowView.cpp
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(66,21): warning C4244:  аргумент: преобразование "double" в "int", возможна потеря данных
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(150,13): warning C4244:  аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  Stack.cpp
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(152,21): warning C4018:  <: несоответствие типов со знаком и без знака
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(66,21): warning C4244:  аргумент: преобразование "double" в "int", возможна потеря данных
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(150,13): warning C4244:  аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  WindowsProject1.cpp
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(152,21): warning C4018:  <: несоответствие типов со знаком и без знака
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(66,21): warning C4244:  аргумент: преобразование "double" в "int", возможна потеря данных
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(150,13): warning C4244:  аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  controller.cpp
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(152,21): warning C4018:  <: несоответствие типов со знаком и без знака
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(66,21): warning C4244:  аргумент: преобразование "double" в "int", возможна потеря данных
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(150,13): warning C4244:  аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  Создание кода...
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(152,21): warning C4018:  <: несоответствие типов со знаком и без знака
+  WindowsProject1.vcxproj -> C:\Users\Yanina Sandryhaila\lab1_pinguins\Debug\WindowsProject1.exe

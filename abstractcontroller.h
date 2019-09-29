@@ -4,6 +4,7 @@
 #include "abstractview.h"
 #include <string>
 #include "Stack.h"
+#include "Chaser.h"
 class AbstractController
 {
 public:
@@ -17,7 +18,7 @@ public:
 	virtual void CrowdVisit() = 0;
 	virtual void StackVisit() = 0;
 	Crowd crowd;
-	Cahser cahser;
+	Chaser chaser;
 	virtual void GoUp() = 0;
 	virtual void GoDown() = 0;
 	

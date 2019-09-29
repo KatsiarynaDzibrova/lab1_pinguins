@@ -124,10 +124,10 @@ private:
 	int size_;
 
 public:
-	string items[20] = { "Lyosha", "Nikita", "Zhenya", "artemx",
-		"Sasha", "rrenkens", "Katya", "Petya", "Sanya", "Dimka", "Lyosha", "Pasha",  "Andryusha", "Narodok", 
+	string items[21] = { "Lyosha", "Nikita", "Zhenya", "artemxx",
+		"Sasha", "Renkens", "Katya", "Petya", "Sanya", "Dimka", "Lyosha", "Pasha",  "Andryusha", "Narodok", 
 		 "Yanina", "Misha", "Alesya",
-	"Stas", "Fedya", "Shnek"};
+	"Stas", "Fedya", "HoldTheDoor", "Shnek"};
 	
 	explicit Crowd() : 
 		crowd(vector<string>(rand() % 10 + 1)), 

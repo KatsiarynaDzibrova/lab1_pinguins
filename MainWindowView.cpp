@@ -60,8 +60,7 @@ void MainWindowView::ShowRandomCrowd() {
 }
 
 void MainWindowView::TimeToVisitCrowd() {
-	//Controller->CrowdVisit();
-	Controller->chaser.VisitCrowd(Controller->crowd);
+	Controller->CrowdVisit();
 	SendDlgItemMessage(hDlg, IDC_LIST4, LB_RESETCONTENT, 0, 0);
 	for (int i = 0; i < Controller->crowd.GetSize(); i++) {
 		SendDlgItemMessage(hDlg, IDC_LIST4, LB_ADDSTRING, 0,

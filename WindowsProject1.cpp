@@ -66,8 +66,12 @@ INT_PTR CALLBACK    About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 			View.DownButton();
 		}
 
-		if (LOWORD(wParam) == IDC_BUTTON6) {			
+		if (LOWORD(wParam) == IDC_BUTTON6) {
 			View.UpButton();
+		}
+
+		if (LOWORD(wParam) == IDC_BUTTON8) {
+			View.ChangeName();
 		}
 
 

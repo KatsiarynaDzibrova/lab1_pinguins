@@ -81,6 +81,9 @@ public:
 		delete[] data_;
 	}
 	Stack::Iterator begin();
+	Stack::Iterator end();
+	
+	
 
 private:
 	string* data_;
@@ -95,6 +98,9 @@ public:
 	const std::string& operator*() const;
 	Iterator& operator++();
 	Iterator& operator--();
+	bool operator!=(const Iterator& right);
+	bool operator==(const Iterator& right);
+	std::string& operator[](int i);
 private:
 	const Stack* stack_;
 	int index;

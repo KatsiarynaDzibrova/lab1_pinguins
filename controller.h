@@ -17,6 +17,7 @@ public:
 
 	void GoUp() override;
 	void GoDown() override;
+	void ChangeCurrentName(std::string s);
 private:
 	MainWindowView* view;
 	Stack stack1;

@@ -18,4 +18,6 @@ public:
 	virtual void UpButton() = 0;
 	virtual void DownButton() = 0;
 	virtual void ShowPicked(std::string tr) = 0;
+	virtual void ChangeName() = 0;
+	virtual void ClearView() = 0;
 };

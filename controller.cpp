@@ -37,10 +37,24 @@ void controller::IfEqual() {
 
 void controller::GoUp() {
 	++iterator1;
+	if (iterator1 == stack1.end()) { 
+		--iterator1; 
+	}
 	view->ShowPicked(*iterator1);
 }
 
 void controller::GoDown() {
+	if (iterator1 != stack1.begin()){
 	--iterator1;
+	}
 	view->ShowPicked(*iterator1);
+}
+
+
+void controller::ChangeCurrentName(std::string s) {
+	view->ClearView();
+	iterator1[0] = s;
+	for (Stack::Iterator it = stack1.begin(); it != stack1.end(); ++it) {
+		view->ShowPinguin(*it);
+	}
 }

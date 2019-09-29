@@ -152,6 +152,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="abstractcontroller.h" />
+    <ClInclude Include="abstractview.h" />
     <ClInclude Include="MainWindowView.h" />
     <ClInclude Include="controller.h" />
     <ClInclude Include="framework.h" />
@@ -164,6 +166,7 @@
   <ItemGroup>
     <ClCompile Include="MainWindowView.cpp" />
     <ClCompile Include="controller.cpp" />
+    <ClCompile Include="Stack.cpp" />
     <ClCompile Include="WindowsProject1.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -21,7 +21,7 @@ public:
 private:
 	MainWindowView* view;
 	Stack stack1;
-	Stack::Iterator iterator1;
+	Iterator iterator1;
 	Stack stack2;
 };
 

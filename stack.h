@@ -3,12 +3,14 @@
 #include "math.h"
 #include <iostream>
 #include <string>
+#include "Iterator.h"
+#include "Iterable.h"
 
 using namespace std;
 
-class Stack {
+
+class Stack : Iterable {
 public:
-	class Iterator;
 
 	explicit Stack(int max_size = 100) :
 		max_size_(max_size), tail_(0) {
@@ -80,31 +82,19 @@ public:
 	~Stack() {
 		delete[] data_;
 	}
-	Stack::Iterator begin();
-	Stack::Iterator end();
-	
-	
+	Iterator CreateIterator() override {
+		return Iterator(data_, 0);
+	}
 
+	Iterator end() override {
+		return Iterator(data_, Size());
+	}
 private:
 	string* data_;
 	int max_size_;
 	int tail_;
 };
  
-class Stack::Iterator : 
-	public std::iterator<std::random_access_iterator_tag, std::string> {
-public:
-	Iterator(Stack* s, int i);
-	const std::string& operator*() const;
-	Iterator& operator++();
-	Iterator& operator--();
-	bool operator!=(const Iterator& right);
-	bool operator==(const Iterator& right);
-	std::string& operator[](int i);
-private:
-	const Stack* stack_;
-	int index;
-};
 
 
 

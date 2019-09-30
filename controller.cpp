@@ -2,7 +2,7 @@
 #include <iostream>
 
 controller::controller(MainWindowView* ptr): 
-	view(ptr), iterator1(stack1.begin()) {
+	view(ptr), iterator1(stack1.CreateIterator()) {
 	stack2.PushBack("Jake");
 	stack2.PushBack("Finn");
 }
@@ -44,7 +44,7 @@ void controller::GoUp() {
 }
 
 void controller::GoDown() {
-	if (iterator1 != stack1.begin()){
+	if (iterator1 != stack1.CreateIterator()){
 	--iterator1;
 	}
 	view->ShowPicked(*iterator1);
@@ -54,7 +54,7 @@ void controller::GoDown() {
 void controller::ChangeCurrentName(std::string s) {
 	view->ClearView();
 	iterator1[0] = s;
-	for (Stack::Iterator it = stack1.begin(); it != stack1.end(); ++it) {
+	for (Iterator it = stack1.CreateIterator(); it != stack1.end(); ++it) {
 		view->ShowPinguin(*it);
 	}
 }

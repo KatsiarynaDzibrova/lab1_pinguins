@@ -22,6 +22,7 @@ public:
 	Chaser chaser;
 	virtual void GoUp() = 0;
 	virtual void GoDown() = 0;
+	virtual void ChangeCurrentName(std::string s) = 0;
 	
 };
 

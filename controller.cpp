@@ -61,4 +61,10 @@ void controller::GoDown() {
 	}
 	view->ShowPicked(*iterator1);
 }
-
+void controller::ChangeCurrentName(std::string s) {
+	view->ClearView();
+	iterator1[0] = s;
+	for (Iterator it = stack1.CreateIterator(); it != stack1.end(); ++it) {
+		view->ShowPinguin(*it);
+	}
+}

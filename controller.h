@@ -21,6 +21,7 @@ public:
 	void StackVisit() override;
 	void GoUp() override;
 	void GoDown() override;
+	void ChangeCurrentName(std::string s) override;
 	
 private:
 	MainWindowView* view;

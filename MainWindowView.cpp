@@ -90,3 +90,16 @@ void MainWindowView::ShowPicked(std::string tr)
 {
 	SetDlgItemText(hDlg, IDC_EDIT2, (LPCSTR)tr.c_str());
 }
+
+
+void MainWindowView::ChangeName() {
+	char s[100];
+	GetDlgItemTextA(hDlg, IDC_EDIT2, (LPSTR)s, 100);
+	Controller->ChangeCurrentName(std::string(s));
+}
+
+void MainWindowView::ClearView() {
+	for (int i = Controller->Size() - 1; i >= 0; --i) {
+		SendDlgItemMessage(hDlg, IDC_LIST1, LB_DELETESTRING, i, 0);
+	}
+}

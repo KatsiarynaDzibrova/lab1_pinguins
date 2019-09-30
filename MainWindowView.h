@@ -21,6 +21,8 @@ public:
 	void UpButton() override;
 	void DownButton() override;
 	void ShowPicked(std::string tr) override;
+	void ChangeName() override;
+	void ClearView() override;
 	void TimeToVisitCrowd() override;
 	void TimeToVisitStack() override;
 

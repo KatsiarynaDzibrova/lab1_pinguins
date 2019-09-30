@@ -83,6 +83,10 @@ INT_PTR CALLBACK    About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 			View.TimeToVisitStack();
 		}
 
+		if (LOWORD(wParam) == IDC_BUTTON10) {
+			View.ChangeName();
+		}
+
 		if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
 		{
 			EndDialog(hDlg, LOWORD(wParam));

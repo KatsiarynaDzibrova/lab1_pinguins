@@ -25,6 +25,8 @@ public:
 	void ClearView() override;
 	void TimeToVisitCrowd() override;
 	void TimeToVisitStack() override;
+	void UpdateCrowd() override;
+	void RandomCrowd() override;
 
 private:
 	AbstractController* Controller;

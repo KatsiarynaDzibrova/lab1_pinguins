@@ -17,6 +17,8 @@ public:
 	virtual void ShowRandomCrowd() = 0;
 	virtual void TimeToVisitCrowd() = 0;
 	virtual void TimeToVisitStack() = 0;
+	virtual void UpdateCrowd() = 0;
+	virtual void RandomCrowd() = 0;
 
 	virtual void UpButton() = 0;
 	virtual void DownButton() = 0;

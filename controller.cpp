@@ -36,15 +36,18 @@ void controller::IfEqual() {
 }
 
 void controller::GenerateCrowd() {
+	crowd.GenerateRandomCrowd();
 	view->ShowRandomCrowd();
 }
 
 void controller::CrowdVisit() {
 	crowd.Accept(chaser);
+	view->UpdateCrowd();
 }
 
 void controller::StackVisit() {
 	stack1.Accept(chaser);
+	view->HidePinguin();
 }
 
 void controller::GoUp() {

@@ -72,7 +72,7 @@ INT_PTR CALLBACK    About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 		}
 
 		if (LOWORD(wParam) == IDC_BUTTON7) {
-			View.ShowRandomCrowd();
+			View.RandomCrowd();
 		}
 
 		if (LOWORD(wParam) == IDC_BUTTON8) {

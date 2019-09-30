@@ -1,0 +1,17 @@
+﻿  MainWindowView.cpp
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(67,21): warning C4244:  аргумент: преобразование "double" в "int", возможна потеря данных
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(125,1): warning C4267:  инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(141,13): warning C4244:  аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  WindowsProject1.cpp
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(147,1): warning C4267:  =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(67,21): warning C4244:  аргумент: преобразование "double" в "int", возможна потеря данных
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(125,1): warning C4267:  инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(141,13): warning C4244:  аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  controller.cpp
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(147,1): warning C4267:  =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(67,21): warning C4244:  аргумент: преобразование "double" в "int", возможна потеря данных
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(125,1): warning C4267:  инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(141,13): warning C4244:  аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  Создание кода...
+C:\Users\Yanina Sandryhaila\lab1_pinguins\Stack.h(147,1): warning C4267:  =: преобразование из "size_t" в "int"; возможна потеря данных
+  WindowsProject1.vcxproj -> C:\Users\Yanina Sandryhaila\lab1_pinguins\x64\Debug\WindowsProject1.exe

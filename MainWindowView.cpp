@@ -50,17 +50,24 @@ void MainWindowView::SetIfEqual(std::string tr) {
 	SendDlgItemMessage(hDlg, IDC_LIST3, LB_ADDSTRING, 0, (LPARAM)tr.c_str());
 }
 
+void MainWindowView::RandomCrowd() {
+	Controller->GenerateCrowd();
+}
+
 void MainWindowView::ShowRandomCrowd() {
-	Controller->crowd.GenerateRandomCrowd();
 	SendDlgItemMessage(hDlg, IDC_LIST4, LB_RESETCONTENT, 0, 0);
 	for (int i = 0; i < Controller->crowd.GetSize(); i++) {
 		SendDlgItemMessage(hDlg, IDC_LIST4, LB_ADDSTRING, 0,
 			(LPARAM)(Controller->crowd.GetHumanWithIndex(i)).c_str());
 	}
 }
+
 
 void MainWindowView::TimeToVisitCrowd() {
 	Controller->CrowdVisit();
+}
+
+void MainWindowView::UpdateCrowd() {
 	SendDlgItemMessage(hDlg, IDC_LIST4, LB_RESETCONTENT, 0, 0);
 	for (int i = 0; i < Controller->crowd.GetSize(); i++) {
 		SendDlgItemMessage(hDlg, IDC_LIST4, LB_ADDSTRING, 0,
@@ -68,9 +75,9 @@ void MainWindowView::TimeToVisitCrowd() {
 	}
 }
 
+
 void MainWindowView::TimeToVisitStack() {
 	Controller->StackVisit();
-	SendDlgItemMessage(hDlg, IDC_LIST1, LB_DELETESTRING, Controller->Size(), 0);
 }
 
 

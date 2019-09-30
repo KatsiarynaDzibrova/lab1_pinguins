@@ -1,8 +1,8 @@
 #include "controller.h"
 #include <iostream>
 
-controller::controller(MainWindowView* ptr): 
-	view(ptr), iterator1(stack1.begin()) {
+controller::controller(MainWindowView* ptr) : stack1(), stack2(), view(ptr) {
+	iterator1 = stack1.CreateIterator();
 	stack2.PushBack("Jake");
 	stack2.PushBack("Finn");
 }
@@ -49,11 +49,16 @@ void controller::StackVisit() {
 
 void controller::GoUp() {
 	++iterator1;
+	if (iterator1 == stack1.end()) {
+		--iterator1;
+	}
 	view->ShowPicked(*iterator1);
 }
 
 void controller::GoDown() {
-	--iterator1;
+	if (iterator1 != stack1.CreateIterator()) {
+		--iterator1;
+	}
 	view->ShowPicked(*iterator1);
 }
 

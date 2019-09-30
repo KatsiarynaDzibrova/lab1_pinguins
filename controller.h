@@ -4,6 +4,7 @@
 #include "Chaser.h"
 #include "abstractcontroller.h"
 #include "MainWindowView.h"
+#include "Iterator.h"
 
 class controller : public AbstractController
 {
@@ -23,7 +24,7 @@ public:
 	
 private:
 	MainWindowView* view;
-	Stack::Iterator iterator1;
+	Iterator iterator1;
 	Stack stack2;
 	Stack stack1;
 };

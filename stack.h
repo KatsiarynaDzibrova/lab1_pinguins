@@ -3,6 +3,8 @@
 #include "math.h"
 #include <iostream>
 #include <string>
+#include "Iterator.h"
+#include "Iterable.h"
 #include <vector>
 #include <ctime>
 #include <algorithm>
@@ -16,9 +18,8 @@ public:
 	virtual void Accept(Visitor& c) = 0;
 };
 
-class Stack : public PeopleGroup  {
+class Stack : Iterable, PeopleGroup {
 public:
-	class Iterator;
 
 	explicit Stack(int max_size = 100) :
 		max_size_(max_size), tail_(0) {
@@ -90,32 +91,22 @@ public:
 	void Accept(Visitor& c) override {
 		c.VisitStack(*this);
 	}
-
 	~Stack() {
 		delete[] data_;
 	}
-	
-	
-	Stack::Iterator begin();
+	Iterator CreateIterator() override {
+		return Iterator(data_, 0);
+	}
 
+	Iterator end() override {
+		return Iterator(data_, Size());
+	}
 private:
 	string* data_;
 	int max_size_;
 	int tail_;
 };
  
-
-class Stack::Iterator : 
-	public std::iterator<std::random_access_iterator_tag, std::string> {
-public:
-	Iterator(Stack* s, int i);
-	const std::string& operator*() const;
-	Iterator& operator++();
-	Iterator& operator--();
-private:
-	const Stack* stack_;
-	int index;
-};
 
 class Crowd : public PeopleGroup
 {
@@ -125,19 +116,19 @@ private:
 
 public:
 	string items[21] = { "Lyosha", "Nikita", "Zhenya", "artemxx",
-		"Sasha", "Renkens", "Katya", "Petya", "Sanya", "Dimka", "Lyosha", "Pasha",  "Andryusha", "Narodok", 
+		"Sasha", "Renkens", "Katya", "Petya", "Sanya", "Dimka", "Lyosha", "Pasha",  "Andryusha", "Narodok",
 		 "Yanina", "Misha", "Alesya",
-	"Stas", "Fedya", "HoldTheDoor", "Shnek"};
-	
-	explicit Crowd() : 
-		crowd(vector<string>(rand() % 10 + 1)), 
+	"Stas", "Fedya", "HoldTheDoor", "Shnek" };
+
+	explicit Crowd() :
+		crowd(vector<string>(rand() % 10 + 1)),
 		size_(crowd.size()) {
 	}
 
 	void DeleteRandomHuman() {
-			crowd.erase(begin(crowd) + rand() % size_);
-			size_--;
-		}
+		crowd.erase(begin(crowd) + rand() % size_);
+		size_--;
+	}
 
 	string GetHumanWithIndex(int index) {
 		return crowd[index];
@@ -150,7 +141,7 @@ public:
 		srand(time(NULL));
 		vector <string> crowd1(rand() % 10 + 1);
 		for (int i = 0; i < crowd1.size(); i++) {
-			crowd1[i] = items[ rand() % (sizeof(items) / sizeof(items[0]))];
+			crowd1[i] = items[rand() % (sizeof(items) / sizeof(items[0]))];
 		}
 		crowd = crowd1;
 		size_ = crowd1.size();
@@ -160,7 +151,6 @@ public:
 		c.VisitCrowd(*this);
 	}
 };
-
 
 
 
